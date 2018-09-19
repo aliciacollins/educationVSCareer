@@ -1,0 +1,70 @@
+<div class="container-fluid" id="jobsPage">
+    <span id="header">
+    <div class="container-fluid" id="indexNavigation">
+        <div class="row" id="home">
+            <div class="col-auto mr-auto"> <img src="/images/Career Center Banner.png" id="banner" alt="banner"></div>
+            <div class="col-auto mr-auto" id="navCol">
+                <h4 id="member-name" class="pull-right">Placeholder</h4>
+            </div>
+            <div class="col-auto" id="navCol"><button class="btn btn-danger pull-right" type="submit" id="logout">Logout</button></div>
+        </div>
+    </div>
+    </span>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select a Category</label>
+                    <select class="form-control" id="category-search">
+                        <option selected>Search All</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select a Desired Salary</label>
+                    <select class="form-control" id="salary-search">
+                        <option selected>Search All</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select an Education Level</label>
+                    <select class="form-control" id="education-search">
+                        <option selected>Search All</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary pull-right" type="submit" id="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offeset-1">
+            <h3 id="savedTitle"></h3>
+            <table class="table table-striped" id="savedSection">
+                <thead>
+                    <tr id='savedHeader' style="display:none">
+                        <th scope='col'>Add to Comparison</th>
+                        <th scope='col'>Occupation</th>
+                        <th scope='col'>Category</th>
+                        <th scope='col'>Median Annual Wage</th>
+                        <th scope='col'>Typcal Entry Level Eduction</th>
+                        <th scope='col'>Employment In 1000s (2016)</th>
+                        <th scope='col'>Employment Change 10 Year Projection</th>
+                        <th scope='col'>Work Experience In Related Occupation</th>
+                        <th scope='col'>Typical On The Job Training</th>
+                    </tr>
+                </thead>
+            </table>
+            <button class="btn btn-primary pull-right" type="submit" id="compare" style="display:none">Compare Jobs</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offeset-1">
+            <h3 id="resultTitle"></h3>
+            <table class="table table-striped" id="resultSection">
+                <thead>
+
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/js/index.js"></script>

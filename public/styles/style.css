@@ -1,0 +1,159 @@
+/* all pages */
+html, body, #signUpPage #jobsPage {
+  height: 100%;
+  font-family: "Rajdhani", sans-serif;
+}
+  /* unvisited link */
+a:link {
+  color: #3c455c;
+}
+
+  /* visited link */
+a:visited {
+  color: #b37c57;
+}
+
+  /* mouse over link */
+a:hover {
+  color: #60412b;
+}
+
+    /* selected link */
+a:active {
+  color: #9aacb8;
+}
+.list-group-item {
+  line-height: 2.5;
+}
+/* sign up page */
+#signUpPage {
+  background: url("/images/Background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+#signUpButton {
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+}
+#password {
+  color: #f2f0e3;
+  font-weight: bolder;
+}
+#email {
+  font-weight: bolder;
+}
+#signUpLogo {
+  margin-top: 7vh;
+  display: flex;
+  justify-content: center;
+}
+/* log in page */
+#logInPage {
+  background-color: #f2f0e3;
+  margin-top: 20vh;
+  padding: 3vh;
+}
+#logInLogo {
+  margin-left: 5vw;
+}
+#logInForm {
+  margin-left: 15vw;
+}
+#logInButton {
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+}
+/* main page */
+#jobsPage {
+  margin-left: 0;
+  margin-right: 0;
+}
+#indexNavigation {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 5vh;
+}
+#banner{
+  width: 70%;
+  height: 50%;
+  margin-top: 2vh;
+}
+#logout{
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+}
+#navCol{
+  display: flex;
+  align-items: center;
+}
+#submit{
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+}
+#canvas1{
+  display: flex;
+  float: left;
+  width: 43vw;
+  height: 75vh;
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+  margin-right: 5vw;
+  justify-content: space-evenly;
+  margin-left: 4vw;
+}
+#canvas2{
+  display: flex;
+  width: 43vw;
+  height: 75vh;
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+  justify-content: space-evenly;
+}
+#canvas3{
+  display: flex;
+  float: left;
+  width: 43vw;
+  height: 75vh;
+  margin-bottom: 5vh;
+  margin-right: 5vw;
+  justify-content: space-evenly;
+  margin-left: 4vw;
+}
+#canvas4{
+  display: flex;
+  width: 43vw;
+  height: 75vh;
+  margin-bottom: 5vh;
+  justify-content: space-evenly;
+}
+#buttonsDiv{
+  border-style: groove;
+  border-color: #e2e2e2;
+  padding: 5px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-left: 25vw;
+}
+#Dentist{
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+  margin-right: 1vw;
+}
+#Education{
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+  margin-right: 1vw;
+}
+#Engineering{
+  background-color: #9aacb8;
+  color: #b37c57;
+  border-color: #a3aaaf;
+  margin-right: 1vw;
+}
