@@ -1,4 +1,6 @@
  var jobsTitle = [];
+ var jobsMedian = [];
+ var jobsEducation = [];
 
 $(document).ready(function () {
   $.get("/api/user_data").then(function (user) {
@@ -12,20 +14,27 @@ $(document).ready(function () {
         for (job in jobsArray) {
           $.get("/api/findJob/" + jobsArray[job]).then(function (dbData) {
             jobsTitle.push(dbData.abbreviatedName);
+            jobsMedian.push(dbData.medianAnnualWage);
+            jobsEducation.push(dbData.educationCode);
           });
         }
-        return(jobsTitle);
+        return(jobsTitle,jobsMedian,jobsEducation);
       }
     });
   });
 });
 
 
-console.log("dbDataReturn",jobsTitle);
+console.log("jobsTitle",jobsTitle);
+console.log("jobsMedian",jobsMedian);
+console.log("jobsEducation",jobsEducation);
  
+var infoArray1 = [jobsEducation,jobsMedian, jobsTitle];
+var infoArray2 = [2,250000,"job number 2"];
+var infoArray3 = [7,60000,"job number 3"];
 
-var JobsArrayData = [jobsTitle[0]];
-console.log("JobsArrayData",JobsArrayData);
+console.log("info array",infoArray1);
+
 
 // variabes to feed graphs, 
 //    amount of schooling - approximate student loan amount
@@ -35,18 +44,62 @@ console.log("JobsArrayData",JobsArrayData);
 
 // variables array
 //    [years of education, median salary, job title]
->7 no cost, 1 doctorate, 2 masters
-educationCode,medianAnnualWage,abbreviatedName
-// calculations for student loan amount
+//>7 no cost, 1 doctorate, 2 masters, 3 bachelors, 4 associate, 5-6 some college
 
-  var iRate = 6.5 / 1200;
+// [educationCode,medianAnnualWage,abbreviatedName]
+
+
+
+ var educationCode = infoArray1[0];
+
+
+var iRate = 6.5 / 1200;
   var iMonths = 360;
   var remainingBalance = [];
   var years = [];
-  var loanAmount = 80000;
+  var loanAmount = "";
   var StdLoanBalance = [];
-  
 
+function convertEdCode(){
+  alert("ed code");
+  
+if (educationCode == 1){
+  loanAmount = 200000;
+}
+else if (educationCode == 2){
+  loanAmount = 120000;
+}
+else if (educationCode === 3){
+  loanAmount = 80000;
+}
+else if (educationCode === 4){
+  loanAmount = 15000;
+}
+else if (educationCode === 5 || 6){
+  loanAmount = 5000;
+}
+   
+return loanAmount;
+
+
+}
+
+convertEdCode(educationCode);
+console.log("ed code is", educationCode);
+// calculations for student loan amount
+  console.log("loan amount",loanAmount);
+  
+//   function f1() {
+//     alert("f1 called");
+//     //form validation that recalls the page showing with supplied inputs.    
+// }
+// window.onload = function() {
+//     document.getElementById("button1").onclick = function fun() {
+//         console.log("button was hit");
+//         f1();
+//         //validation code to see State field is mandatory.  
+//     };
+// };
   
  
   function getMonthlyPayment(balance, iRate, iMonths) {
@@ -100,7 +153,7 @@ educationCode,medianAnnualWage,abbreviatedName
   
   
   var medSalaries = [];
-  var median = 45000;
+  var median = infoArray1[1];
   median = median * 0.8;
 
   for (var i = 0; i <= 30; i++) {
@@ -108,8 +161,10 @@ educationCode,medianAnnualWage,abbreviatedName
     medSalaries.push(median);
   }
 
+  // console.log("med array", medSalaries);
+
   var medSalaries2 = [];
-  var median2 = 190840;
+  var median2 = infoArray2[1];
   median2 = median2 * 0.5;
   //create a for each function
   for (var i = 0; i <= 30; i++) {
@@ -118,7 +173,7 @@ educationCode,medianAnnualWage,abbreviatedName
   }
  
   var medSalaries3 = [];
-  var median3 = 101560;
+  var median3 = infoArray3[1];
   median3 = median3 * 0.5;
 
   for (var i = 0; i <= 30; i++) {
@@ -131,9 +186,9 @@ educationCode,medianAnnualWage,abbreviatedName
 
   //create a for each function
 
-  console.log("mediansalarys", medSalaries);
-  console.log("mediansalarys2", medSalaries2);
-  console.log("mediansalarys3", medSalaries3);
+  // console.log("mediansalarys", medSalaries);
+  // console.log("mediansalarys2", medSalaries2);
+  // console.log("mediansalarys3", medSalaries3);
 
 
   ///displaying graphs
@@ -171,7 +226,7 @@ educationCode,medianAnnualWage,abbreviatedName
     labels: years,
     datasets: [
       {
-        label: "Engineering",
+        label: infoArray1[2],
         data: medSalaries3,
         backgroundColor: "rgba(179,124,87,.4)"
       },
@@ -191,19 +246,19 @@ educationCode,medianAnnualWage,abbreviatedName
     labels: years,
     datasets: [
       {
-        label: "Education",
+        label: infoArray1[2],
         data: medSalaries,
         backgroundColor: "rgba(179,124,87,.7)",
         fill: false
       },
       {
-        label: "Dentist",
+        label: infoArray2[2],
         data: medSalaries2,
         backgroundColor: "rgba(60,69,92,0.7)",
         fill: false
       },
       {
-        label: "Engineering",
+        label: infoArray3[2],
         data: medSalaries3,
         backgroundColor: "rgba(96,65,43,0.7)",
         fill: false
